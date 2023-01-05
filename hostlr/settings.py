@@ -78,8 +78,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'hostlr_dev',
-        'USER': 'admin',
-        'PASSWORD': 'Developer2718',
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
         'HOST': 'mysql-testpoc-01.cjhxgoxyiajg.ap-south-1.rds.amazonaws.com',
         'PORT': '3306',
         'OPTIONS': {
