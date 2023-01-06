@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-f68hzv4prhlew(&w79-7ss%5l%z*1*-m%f%w4m%t31mb0@e$3$
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', "").split(",")
 
 
 # Application definition
@@ -80,7 +80,7 @@ DATABASES = {
         'NAME': 'hostlr_dev',
         'USER': os.environ.get('DB_USER'),
         'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': 'mysql-testpoc-01.cjhxgoxyiajg.ap-south-1.rds.amazonaws.com',
+        'HOST': os.environ.get('DB_HOST'),
         'PORT': '3306',
         'OPTIONS': {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
